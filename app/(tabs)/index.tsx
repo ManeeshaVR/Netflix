@@ -1,14 +1,18 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Image, FlatList } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+
+import categories from '@/assets/data/categories';
+import HomeCard from '@/components/HomeCard';
 
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <FlatList 
+      data={categories.items}
+      renderItem={({item}) => <HomeCard category={item}/> }
+      ></FlatList>
+      
     </View>
   );
 }
@@ -16,8 +20,6 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   title: {
     fontSize: 20,
@@ -28,4 +30,12 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  image: {
+    width: 100,
+    height: 170,
+    resizeMode: 'cover',
+    borderRadius: 5,
+    margin: 5,
+  }
 });
+
