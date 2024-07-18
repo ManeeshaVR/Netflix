@@ -1,9 +1,6 @@
 import { StyleSheet, Image, FlatList } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text } from '@/components/Themed';
-
-import categories from '@/assets/data/categories';
 
 interface HomeCardProps {
     category: {
@@ -23,8 +20,7 @@ const HomeCard = (props: HomeCardProps) => {
             <Text style={styles.title}>{category.title}</Text>
             <FlatList data={category.movies} renderItem={({ item }) => (
                 <Image style={styles.image} source={{ uri: item.poster }}></Image>
-            )} horizontal></FlatList>
-
+            )} horizontal showsHorizontalScrollIndicator={false}></FlatList>
 
         </>
     );
@@ -39,6 +35,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold',
+        marginLeft: 5,
     },
     separator: {
         marginVertical: 30,
@@ -50,7 +47,7 @@ const styles = StyleSheet.create({
         height: 170,
         resizeMode: 'cover',
         borderRadius: 5,
-        margin: 5,
+        margin: 7,
     }
 });
 

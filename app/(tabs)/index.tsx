@@ -8,11 +8,10 @@ import HomeCard from '@/components/HomeCard';
 export default function Home() {
   return (
     <View style={styles.container}>
-      <FlatList 
+      <FlatList style={styles.flatlist} 
       data={categories.items}
       renderItem={({item}) => <HomeCard category={item}/> }
       ></FlatList>
-      
     </View>
   );
 }
@@ -36,6 +35,11 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     borderRadius: 5,
     margin: 5,
+  },
+  flatlist: {
+    marginBottom: 30,
+    marginTop: 70,
+    marginLeft: 5,
   }
 });
 

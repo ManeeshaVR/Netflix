@@ -50,6 +50,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="movieDetails"
+        options={{
+          title: 'Movie Details',
+          tabBarIcon: ({ color }) => <MaterialIcons name="video-library" size={24} color={color}/> ,
+        }}
+      />
+      <Tabs.Screen
         name="soon"
         options={{
           title: 'Comming Soon',
